@@ -1,0 +1,43 @@
+#Samuel Foss
+#Program 1 MPG Calculator
+#11/22/2024
+
+import tkinter as tk
+
+def calmpg():
+    try:
+        miles = float(miles1.get())
+        gallons = float(gallons1.get())
+
+        if gallons == 0:
+            data.config(text="Error.")
+        else:
+            mpg = miles / gallons
+            data.config(text=f"Miles Per Gallon: {mpg:.2f}")
+    except ValueError:
+        data.config(text="Invalid Text.")
+
+display = tk.Tk()
+display.title("MPG Calculator")
+
+milelabel = tk.Label(display, text="Full Tank Total Miles:")
+milelabel.pack(padx=20, pady=10)
+miles1 = tk.Entry(display)
+miles1.pack(padx=20, pady=10)
+
+gallons_label = tk.Label(display, text="Total Gallons:")
+gallons_label.pack(padx=20, pady=10)
+gallons1 = tk.Entry(display)
+gallons1.pack(padx=20, pady=10)
+
+data = tk.Label(display, text="MPG: ", font=(12))
+data.pack(padx=20, pady=10)
+
+calbutton = tk.Button(display, text="MPG:", command=calmpg)
+calbutton.pack(padx=10, pady=10)
+
+display.mainloop()
+
+#output
+
+#Process finished with exit code 0
